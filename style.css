@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
+
+:root {
+  --roxo: #7057d9;
+  --roxo-escuro: #5941bd;
+  --fundo: #f7f6fc;
+  --texto: #25233a;
+  --texto-suave: #85839a;
+  --borda: #eeedf4;
+  --verde: #36a982;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at 85% 10%, #ece8ff 0, transparent 24rem),
+    var(--fundo);
+  color: var(--texto);
+  font-family: "DM Sans", sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.topo {
+  width: min(100% - 40px, 1000px);
+  height: 78px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--texto);
+  font-family: "Manrope", sans-serif;
+  font-size: 21px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.logo-icone {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 11px;
+  background: var(--roxo);
+  color: white;
+  font-size: 22px;
+}
+
+.topo-legenda {
+  color: var(--texto-suave);
+  font-size: 14px;
+}
+
+.container {
+  width: min(100% - 40px, 680px);
+  margin: 54px auto 70px;
+}
+
+.boas-vindas {
+  margin-bottom: 28px;
+}
+
+.data {
+  margin: 0 0 12px;
+  color: var(--roxo);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(28px, 5vw, 40px);
+  letter-spacing: -0.04em;
+}
+
+.subtitulo {
+  margin: 10px 0 0;
+  color: var(--texto-suave);
+  font-size: 15px;
+}
+
+.painel {
+  padding: 26px;
+  border: 1px solid #f0eef7;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 16px 45px #29204a0c;
+}
+
+.formulario {
+  display: flex;
+  gap: 10px;
+}
+
+.formulario input {
+  min-width: 0;
+  flex: 1;
+  padding: 14px 16px;
+  border: 1px solid var(--borda);
+  border-radius: 11px;
+  outline: none;
+  color: var(--texto);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.formulario input:focus {
+  border-color: var(--roxo);
+  box-shadow: 0 0 0 3px #7057d91a;
+}
+
+.formulario input::placeholder {
+  color: #aaa8b8;
+}
+
+.botao-adicionar {
+  padding: 0 17px;
+  border: 0;
+  border-radius: 11px;
+  background: var(--roxo);
+  color: white;
+  font-weight: 700;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.botao-adicionar:hover {
+  transform: translateY(-1px);
+  background: var(--roxo-escuro);
+}
+
+.botao-adicionar span {
+  margin-right: 4px;
+  font-size: 18px;
+}
+
+.resumo {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 25px 0 10px;
+  color: var(--texto-suave);
+  font-size: 13px;
+}
+
+.barra-progresso {
+  height: 7px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #f0eef7;
+}
+
+.barra-progresso span {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--roxo), #a48bef);
+  transition: width 0.3s ease;
+}
+
+.filtros {
+  display: flex;
+  gap: 8px;
+  margin: 24px 0 14px;
+}
+
+.filtro {
+  padding: 8px 13px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--texto-suave);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.filtro:hover {
+  background: #f7f5fc;
+}
+
+.filtro.ativo {
+  background: #f0edff;
+  color: var(--roxo-escuro);
+}
+
+.lista-tarefas {
+  display: grid;
+  gap: 9px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tarefa {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 54px;
+  padding: 10px 12px;
+  border: 1px solid var(--borda);
+  border-radius: 11px;
+  animation: aparecer 0.2s ease-out;
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.checkbox-tarefa {
+  width: 19px;
+  height: 19px;
+  flex: 0 0 auto;
+  accent-color: var(--verde);
+  cursor: pointer;
+}
+
+.texto-tarefa {
+  flex: 1;
+  overflow-wrap: anywhere;
+  font-size: 14px;
+}
+
+.tarefa.concluida .texto-tarefa {
+  color: #a09eac;
+  text-decoration: line-through;
+}
+
+.botao-remover {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #a09eac;
+  font-size: 19px;
+}
+
+.botao-remover:hover {
+  background: #fff0f0;
+  color: #d95365;
+}
+
+.mensagem-vazia {
+  padding: 24px 5px 10px;
+  color: var(--texto-suave);
+  font-size: 14px;
