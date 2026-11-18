@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Organize suas tarefas de forma simples e prática.">
+  <title>Organiza — Lista de Tarefas</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topo">
+    <a class="logo" href="#" aria-label="Organiza, página inicial">
+      <span class="logo-icone" aria-hidden="true">✓</span>
+      Organiza
+    </a>
+    <span class="topo-legenda">Seu dia, em ordem.</span>
+  </header>
+
+  <main class="container">
+    <section class="boas-vindas" aria-labelledby="titulo-principal">
+      <p class="data" id="data-atual"></p>
+      <h1 id="titulo-principal">O que vamos fazer hoje?</h1>
+      <p class="subtitulo">Anote suas tarefas e acompanhe seu progresso.</p>
+    </section>
+
+    <section class="painel" aria-label="Gerenciador de tarefas">
+      <form id="formulario-tarefa" class="formulario">
+        <label class="sr-only" for="campo-tarefa">Nova tarefa</label>
+        <input
+          id="campo-tarefa"
+          name="tarefa"
+          type="text"
+          placeholder="Ex.: estudar para a prova"
+          maxlength="100"
+          autocomplete="off"
+          required
+        >
+        <button type="submit" class="botao-adicionar">
+          <span aria-hidden="true">＋</span>
+          Adicionar
+        </button>
+      </form>
+
+      <div class="resumo" aria-live="polite">
+        <span id="contador-tarefas">0 tarefas pendentes</span>
+        <span id="progresso-texto">0% concluído</span>
+      </div>
+
+      <div
+        class="barra-progresso"
+        role="progressbar"
+        aria-label="Progresso das tarefas"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow="0"
+      >
+        <span id="barra-preenchida"></span>
+      </div>
+
+      <nav class="filtros" aria-label="Filtrar tarefas">
+        <button type="button" class="filtro ativo" data-filtro="todas" aria-pressed="true">
+          Todas
+        </button>
+        <button type="button" class="filtro" data-filtro="pendentes" aria-pressed="false">
+          Pendentes
+        </button>
+        <button type="button" class="filtro" data-filtro="concluidas" aria-pressed="false">
+          Concluídas
+        </button>
+      </nav>
+
+      <ul id="lista-tarefas" class="lista-tarefas" aria-label="Tarefas"></ul>
+
+      <p id="mensagem-vazia" class="mensagem-vazia">
+        ✨ Sua lista está vazia. Adicione uma tarefa para começar!
+      </p>
+
+      <button type="button" id="limpar-concluidas" class="limpar-concluidas">
+        Limpar tarefas concluídas
+      </button>
+    </section>
+
+    <aside class="dica">
+      <span aria-hidden="true">💡</span>
+      <p><strong>Dica:</strong> tarefas pequenas também contam. Faça uma de cada vez!</p>
+    </aside>
+  </main>
+
+  <footer class="rodape">
+    <p>Feito para deixar seu dia mais leve.</p>
+  </footer>
+</body>
+</html>
